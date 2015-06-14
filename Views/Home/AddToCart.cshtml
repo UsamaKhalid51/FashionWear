@@ -1,0 +1,121 @@
+﻿@using OnlineStore.Models
+
+
+@model OnlineStore.Models.item
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Men</title>
+</head>
+
+<body style="background-color:#ddd6d6; background-image: url('../../Content/mainSlider/blu-stripes.png'); ">
+    <!-- Page Content -->
+    <link href="~/Content/SlimBox/slimbox2.css" rel="stylesheet" />
+    <script src="~/Content/SlimBox/slimbox2.js"></script>
+
+
+    <center>
+        <div style="margin-top:4%; color:#000000;font-weight:bold; font-size:40px;">
+            <h1>Add To Cart</h1>
+            <hr />
+        </div>
+    </center>
+
+    @*<div class="container">
+
+        <div class="row">*@
+    <center>
+
+        <div style="background-color:#e8e3e3; border:1px solid black;width:1000px; height:700px;">
+
+            @{
+
+                String src = Model.item_Id + "_img_" + 1 + ".jpg";
+
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb " style="margin-left:40%;margin-top:5%;">
+                    <a href="~/Files/@src" class=" thumbnail" rel="lightbox" style="text-decoration:none;">
+                        <img src="~/Files/@src" alt="" />
+
+                        <font color="black">
+                            Item ID: @Model.item_Id<br />
+                            Item: @Model.name<br />
+                            Brand: @Model.brand<br />
+                            Category: @Model.category<br />
+                            Price: @Model.price
+                        </font>
+                    </a>
+
+
+                </div>
+
+
+
+                <table style="width:38%" class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+
+                    <tr>
+                        @for (int i = 2; i < 5; i++)
+                        {
+                            src = Model.item_Id + "_img_" + i + ".jpg";
+                            <td align="center">
+                                <a href="~/Files/@src"  rel="lightbox" style="text-decoration:none;">  <img src="~/Files/@src" height="100" width="100" alt="" /></a>
+                            </td>
+
+                        }
+                    </tr>
+                </table>
+            }
+
+            <br />
+
+
+
+
+            <div class="form-group" style="margin-left:36%;">
+
+                <div class="col-md-5">
+
+
+                    @using (Html.BeginForm("Add", "Home", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(m => m.item_Id)
+                        @Html.Label("Quantity", new { style = "color:black; padding:5px;margin-left:10%;font-weight:bold; font-family:Arial;font-size:20px;" })
+
+
+                        @Html.TextBox("quantity")
+
+                     
+
+                        <input type="submit" class="btn btn-primary" width="50" value="Add" style="margin-left:10%;margin-top:2%;" />
+                    }
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        
+
+        @*</div>
+            </div>*@
+    </center>
+
+
+</body>
+
+
+
+</html>
+
+

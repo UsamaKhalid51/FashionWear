@@ -1,0 +1,153 @@
+﻿@using OnlineStore.Models
+
+@{
+    ViewBag.Title = "Remove";
+    Layout = "~/Views/Shared/_Admin_Header.cshtml";
+    Session["Page"] = "Remove";
+}
+
+
+@if (ViewBag.info != null)
+{
+    String m = "bDel";
+    String n= "cDel";
+    String o = "sDel";
+
+    if (ViewBag.info.Equals(m))
+    {
+        <script>alert('Brand Deleted Successfully!');</script>
+    }
+    else if (ViewBag.info.Equals(n))
+    {
+        <script>alert('Category Deleted Successfully!');</script>
+    }
+    else if (ViewBag.info.Equals(o))
+    {
+        <script>alert('Sub-Category Deleted Successfully!');</script>
+    }
+ 
+}
+
+
+<div id="content" class="col-lg-10 col-sm-10">
+    <!-- content starts -->
+    <div>
+        <ul class="breadcrumb">
+            <li>
+                <a href="/Admin/Dashboard">Home</a>
+            </li>
+            <li>
+                <a href="/Admin/Remove">Add Brand</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="box col-md-12">
+            <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                    <h2><i class="glyphicon glyphicon-edit"></i> Delete Brands/Categories/Sub-Categories</h2>
+
+                </div>
+                <div class="box-content">
+                    <form action="/Admin/DeleteSelected" method="post" >
+
+                        <hr />
+                        <label>Select Brand to Delete</label>
+                        <select name="brand" class="ui-tabs-selected" style="margin-left:8%;">
+
+                            @foreach (var s in ViewBag.brandsList)
+                            {
+
+                                <option value=@s.bName>@s.bName</option>
+
+                            }
+                        </select>
+
+
+                        <hr />
+                        <div class="form-group">
+                            <button type="submit" name="b" value="bclicked" class="btn btn-primary">Delete Brand</button>
+                        </div>
+
+
+
+
+
+
+
+                        <hr />
+                        <label>Select Category to Delete</label>
+                        <select name="category" class="ui-tabs-selected" style="margin-left:8%;">
+
+                            @foreach (var s in ViewBag.categoryList)
+                            {
+
+                                <option value=@s.c_name>@s.c_name</option>
+
+                            }
+                        </select>
+
+
+                        <hr />
+                        <div class="form-group"> 
+                            <button type="submit" name="c" value="cclicked" class="btn btn-primary">Delete Category</button>
+                        </div>
+
+
+
+
+                        <hr />
+                       
+
+
+
+                        <label>Category</label>
+                        <select name="gcategory" class="ui-tabs-selected" style="margin-left:8%;">
+
+                            @foreach (var s in ViewBag.categoryList)
+                            {
+
+                                <option value=@s.c_name>@s.c_name</option>
+
+                            }
+                        </select>
+
+
+
+                        <label>Select Sub-Category  to Delete</label>
+
+                        <select name="sCategory" class="ui-tabs-selected" style="margin-left:8%;">
+                            @foreach (var s in ViewBag.subcategoryList)
+                            {
+
+                                <option value=@s.subName>@s.subName</option>
+
+                            }
+                        </select>
+
+
+                        <hr />
+                        <div class="form-group">
+                            <button type="submit" name="sc" value="scclicked" class="btn btn-primary">Delete Sub-Category</button>
+                        </div>
+
+
+
+
+
+
+
+                        <br /><br />
+                        <hr />
+
+
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--/span-->
+    </div><!--/row-->
+    <!-- content ends -->
+</div><!--/#content.col-md-0-->

@@ -1,0 +1,728 @@
+﻿@using OnlineStore.Models
+@{ user u = (user)HttpContext.Current.Session["user"];}
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <style>
+        e > html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
+
+    <title>FashionWear</title>
+
+    <link rel="shortcut icon" href="~/Content/favicon.ico" />
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/full-slider.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery.js"></script>
+
+
+
+</head>
+
+
+<body style="background-color:#ddd6d6; background-image: url('../../Content/mainSlider/blu-stripes.png'); ">
+
+
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+
+        </ol>
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Content/mainSlider/slider1.jpg');"></div>
+
+            </div>
+
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Content/mainSlider/slider5.jpg');"></div>
+
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Content/mainSlider/slider6.jpg');"></div>
+
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('/Content/mainSlider/boy1.jpg');"></div>
+
+            </div>
+
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+    <!-- Page Content -->
+    <!-- jQuery -->
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+
+        $('.carousel').carousel({
+            interval: 3000 //changes the speed
+        });
+
+
+
+    </script>
+
+
+
+    <!--SECTION FOR THUMNAIL SLIDER=====================================================================================-->
+    @{
+        List<item> PopularList = new List<item>();
+        PopularList = ViewBag.PopularItemsList;
+    }
+
+
+    <br />
+
+    <h1 style="color:#1b1b1b; font-size:30px;margin-left:9%;font-family:Bebas Neue; font-weight:bolder; ">Featured Products</h1>
+    <hr />
+    <div class="container" style="margin-left:7%; border:7px solid; border-color:#BBB; background-color:#1b1b1b">
+        <div class="col-md-12">
+
+            <div class="well-none">
+                <div id="myCarousel" class="carousel slide">
+
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[0].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[1].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[2].image_name" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[3].image_name" style="height:200px;width:auto"></a>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                        <!--/item-->
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x col-xs-6"><img src="~/Files/@PopularList[4].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[5].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[6].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[7].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                        <!--/item-->
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[8].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[9].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[10].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[11].image_name" alt=" image" style="height:200px;width:auto"></a>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                        <!--/item-->
+                    </div>
+                    <!--/carousel-inner-->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-triangle-left"></i></a>
+
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-triangle-right"></i></a>
+                </div>
+                <!--/myCarousel-->
+            </div>
+            <!--/well-->
+        </div>
+    </div>
+
+
+    <br />
+
+    <h1 style="color:#1b1b1b; font-size:30px;margin-left:9%;font-family:Bebas Neue; font-weight:bolder; ">Latest Products</h1>
+    <hr />
+    <!--SECOND MINI SLIDER-->
+    <div class="container" style="margin-left:7%; border:7px solid; border-color:#BBB; background-color:#1b1b1b">
+        <div class="col-md-12">
+
+            <div class="well-none">
+                <div id="myCarousel" class="carousel slide">
+
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[0].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[1].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[2].image_name" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[3].image_name" style="height:200px;width:auto"></a>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                        <!--/item-->
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x col-xs-6"><img src="~/Files/@PopularList[4].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[5].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[6].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[7].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                        <!--/item-->
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[8].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[9].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[10].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <a href="#x"><img src="~/Files/@PopularList[11].image_name" alt=" image" style="height:200px;width:auto"></a>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                        <!--/item-->
+                    </div>
+                    <!--/carousel-inner-->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-triangle-left"></i></a>
+
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-triangle-right"></i></a>
+                </div>
+                <!--/myCarousel-->
+            </div>
+            <!--/well-->
+        </div>
+    </div>
+
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+
+        $('.carousel').carousel({
+            interval: 3000 //changes the speed
+        });
+
+
+
+    </script>
+
+
+
+    <!-- END SECTION FOR THUMNAIL SLIDER=====================================================================================-->
+
+    <style>
+
+
+                        body::-webkit-scrollbar {
+                    width: 1em;
+                }
+
+                body::-webkit-scrollbar-track {
+                    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                }
+
+                body::-webkit-scrollbar-thumb {
+                  background-color: darkgrey;
+                  outline: 1px solid slategrey;
+                }
+                        .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+                            color: #fff;
+                            background-color: #1b1b1b;
+                        }
+
+                        .margintop20 {
+                            margin-top: 20px;
+                        }
+
+                        .nav-pills > li > a {
+                            border-radius: 0px;
+                            background-color: #dadada;
+                        }
+
+                        ul li a {
+                            color: #000;
+                            text-decoration: none;
+                        }
+
+                        a:hover {
+                            color: #0094ff;
+                            text-decoration: none;
+                        }
+
+
+                        .nav-stacked > li + li {
+                            margin-top: 0px;
+                            margin-left: 0;
+                            border-bottom: 1px solid #dadada;
+                            border-left: 1px solid #dadada;
+                            border-right: 1px solid #dadada;
+                        }
+
+                        .active2 {
+                            border-right: 4px solid #428bca;
+                        }
+
+
+
+
+
+
+
+                        .dropdown-submenu {
+                            position: relative;
+                        }
+
+                            .dropdown-submenu > .dropdown-menu {
+                                top: 0;
+                                left: 100%;
+                                margin-top: -6px;
+                                margin-left: -1px;
+                                -webkit-border-radius: 0 6px 6px 6px;
+                                -moz-border-radius: 0 6px 6px 6px;
+                                border-radius: 0 6px 6px 6px;
+                            }
+
+                            .dropdown-submenu:hover > .dropdown-menu {
+                                display: block;
+                            }
+
+                            .dropdown-submenu > a:after {
+                                display: block;
+                                content: " ";
+                                float: right;
+                                width: 0;
+                                height: 0;
+                                margin-top: 5px;
+                                margin-right: -10px;
+                            }
+
+                            .dropdown-submenu:hover > a:after {
+                            }
+
+                            .dropdown-submenu.pull-left {
+                                float: none;
+                            }
+
+                                .dropdown-submenu.pull-left > .dropdown-menu {
+                                    left: -100%;
+                                    margin-left: 10px;
+                                    -webkit-border-radius: 6px 0 6px 6px;
+                                    -moz-border-radius: 6px 0 6px 6px;
+                                    border-radius: 6px 0 6px 6px;
+                                }
+
+
+
+                                /*SEARCH RANGE STYLYING*/
+
+        input[type=range] {
+          -webkit-appearance: none;
+          width: 100%;
+          margin: 6.85px 0;
+        }
+        input[type=range]:focus {
+          outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 2.3px;
+          cursor: pointer;
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+          background: #1b79a9;
+          border-radius: 0.4px;
+          border: 0.2px solid #010101;
+        }
+        input[type=range]::-webkit-slider-thumb {
+          box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
+          border: 0px solid rgba(0, 0, 0, 0);
+          height: 16px;
+          width: 10px;
+          border-radius: 25px;
+          background: #ffffff;
+          cursor: pointer;
+          -webkit-appearance: none;
+          margin-top: -7.05px;
+        }
+        input[type=range]:focus::-webkit-slider-runnable-track {
+          background: #208fc8;
+        }
+        input[type=range]::-moz-range-track {
+          width: 100%;
+          height: 2.3px;
+          cursor: pointer;
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+          background: #1b79a9;
+          border-radius: 0.4px;
+          border: 0.2px solid #010101;
+        }
+        input[type=range]::-moz-range-thumb {
+          box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
+          border: 0px solid rgba(0, 0, 0, 0);
+          height: 16px;
+          width: 10px;
+          border-radius: 25px;
+          background: #ffffff;
+          cursor: pointer;
+        }
+        input[type=range]::-ms-track {
+          width: 100%;
+          height: 2.3px;
+          cursor: pointer;
+          background: transparent;
+          border-color: transparent;
+          color: transparent;
+        }
+        input[type=range]::-ms-fill-lower {
+          background: #16638a;
+          border: 0.2px solid #010101;
+          border-radius: 0.8px;
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        }
+        input[type=range]::-ms-fill-upper {
+          background: #1b79a9;
+          border: 0.2px solid #010101;
+          border-radius: 0.8px;
+          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        }
+        input[type=range]::-ms-thumb {
+          box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
+          border: 0px solid rgba(0, 0, 0, 0);
+          height: 16px;
+          width: 10px;
+          border-radius: 25px;
+          background: #ffffff;
+          cursor: pointer;
+          height: 2.3px;
+        }
+        input[type=range]:focus::-ms-fill-lower {
+          background: #1b79a9;
+        }
+        input[type=range]:focus::-ms-fill-upper {
+          background: #208fc8;
+        }
+
+
+    </style>
+
+
+
+    <script>
+
+        function lat()
+        {
+            $('#d1').load('/Home/li');
+        }
+
+
+        $('document').ready(function () {
+
+            $('#d1').load('/Home/li');
+        });
+
+
+        function fc() {
+            //$('#rangeInput').onInput(function () {
+                var value = $('#rangeInput').val();
+
+                $('#d1').load('/Home/rangeSearch?cat=' + value);
+            //});
+        }
+    </script>
+
+
+
+ 
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-8 pull-left" style="margin-top:100px; width:350px">
+
+                <form method="post" action="/Home/Search" oninput="amount.value=rangeInput.value">
+
+                    <ul style="border:1px solid black;background-color:#eae7e7">
+
+                        <li>
+                            <input type="text" name="str" placeholder="Search" class="form-control" />
+                        </li>
+
+                        <li>
+                            <input type="submit" class="btn btn-primary" style="margin-left:43%;margin-top:1%;" value="Search" />
+                            <hr />
+                        </li>
+
+                        <li>
+                            <input type="range" id="rangeInput" name="price" min="100" max="2000" onchange="fc();">
+                            <output name="amount" for="rangeInput" style="margin-left:47%;">1000</output>
+                        </li>
+                    </ul>
+                </form>
+
+
+
+                <ul class="nav nav-pills nav-stacked">
+
+                    @{
+
+                        <li class="active" style="background-color:#1b1b1b"><a href="#0" style="color:#fff; font-size:15px; "><span class="glyphicon glyphicon-paperclip"></span> Categories </a></li>
+                        foreach (category c in Model)
+                        {
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#0"><span class="glyphicon glyphicon-chevron-right">@c.c_name</span></a>
+                                @if (c.subCategories.ToList().Count() != 0)
+                                {
+
+                                    <ul class="dropdown-menu nav nav-pills nav-stacked" style="background-color:rgba(0,0,0,0.3); ">
+
+                                        <li class="active"><a href="#" style="font-size:15px;"><span class="glyphicon glyphicon-paperclip"></span> @c.c_name </a></li>
+
+                                        @foreach (subCategory s in c.subCategories)
+                                        {
+
+                                            <li>
+                                                @Html.ActionLink(s.subName, "getSubCategory", s)
+
+                                            </li>
+
+                                        }
+
+                                       
+                                    </ul>
+                                }
+                            </li>
+
+                        }
+
+                    }
+
+
+                </ul>
+
+
+
+                <ul class="nav nav-pills nav-stacked" style="margin-top:50px;">
+
+
+
+
+                    @{
+
+                        <li class="active"><a href="#0" style="font-size:15px;"><span class="glyphicon glyphicon-paperclip"></span> Brands </a></li>
+                        foreach (brand b in ViewBag.brandsList)
+                        {
+
+                            <li>
+
+                                @Html.ActionLink(b.bName + "", "getBrand", b)
+
+                            </li>
+                        }
+
+                    }
+
+
+                </ul>
+
+
+
+
+
+            </div>
+
+
+
+            <style>
+                .thumbnail {
+                    background-color: #ddd6d6;
+                    color: #0094ff;
+                }
+
+
+
+                .box {
+                    width: 200px;
+                    height: 300px;
+                    position: relative;
+                    border: 1px solid #BBB;
+                    background: #EEE;
+                }
+
+                .ribbon {
+                    position: absolute;
+                    right: -5px;
+                    top: -5px;
+                    z-index: 1;
+                    overflow: hidden;
+                    width: 75px;
+                    height: 75px;
+                    text-align: right;
+                }
+
+                    .ribbon span {
+                        font-size: 10px;
+                        font-weight: bold;
+                        color: #FFF;
+                        text-transform: uppercase;
+                        text-align: center;
+                        line-height: 20px;
+                        transform: rotate(45deg);
+                        width: 100px;
+                        display: block;
+                        background: #79A70A;
+                        background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+                        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+                        position: absolute;
+                        top: 19px;
+                        right: -21px;
+                    }
+
+                        .ribbon span::before {
+                            content: "";
+                            position: absolute;
+                            left: 0px;
+                            top: 100%;
+                            z-index: -1;
+                            border-left: 3px solid #79A70A;
+                            border-right: 3px solid transparent;
+                            border-bottom: 3px solid transparent;
+                            border-top: 3px solid #79A70A;
+                        }
+
+                        .ribbon span::after {
+                            content: "";
+                            position: absolute;
+                            right: 0px;
+                            top: 100%;
+                            z-index: -1;
+                            border-left: 3px solid transparent;
+                            border-right: 3px solid #79A70A;
+                            border-bottom: 3px solid transparent;
+                            border-top: 3px solid #79A70A;
+                        }
+            </style>
+
+
+
+
+            <!-- Page Content -->
+            <link href="~/Content/SlimBox/slimbox2.css" rel="stylesheet" />
+            <script src="~/Content/SlimBox/slimbox2.js"></script>
+
+
+            <div class="col-xs-8 pull-right" style="margin-top:-5px;float:left; width:800px;" id="d1">
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/Content/sweealert/sweet-alert.js"></script>
+    <script src="~/Content/sweealert/sweet-alert.min.js"></script>
+    <link href="~/Content/sweealert/sweet-alert.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-2.1.1.js"></script>
+
+
+
+    @*<div class="row">
+        <div class="col-sm-2 text-center">
+            <p><button class="btn btn-primary sweet-2" onclick="show()">Try It</button></p>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function show() {
+            swal("Good job!", "You clicked the button!", "success");
+        }
+
+    </script>*@
+
+
+</body>
+
+
+</html>

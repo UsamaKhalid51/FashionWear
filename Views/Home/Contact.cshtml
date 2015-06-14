@@ -1,0 +1,140 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Contact</title>
+     
+    <link rel="shortcut icon" href="~/Content/favicon.ico" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/full-slider.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body  style="background-color:#000000" >
+
+
+
+
+
+
+
+
+
+
+    <center>
+
+
+        <!-- Page Content -->
+        <div class="container" style="margin-top:150px; width: 55%; height: 60%;   background-color:#0094ff;  ">
+            <div class="row">
+                <div class="col-lg-12">
+                     
+                    <hr>
+                    <h1>Contact Us</h1>
+                    <p>
+
+                        <table>
+                            <tr>
+                                <td><div class="glyphicon glyphicon-user" > Usama Khalid</div></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="glyphicon glyphicon-envelope"> arrowhead_51@yahoo.com</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="glyphicon glyphicon-phone-alt"  > 923126871401</div>
+                                   
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td>
+
+                                    <div class="glyphicon glyphicon-home" >
+                                        PUCIT, Lahore
+                                    </div>
+                                        
+
+                                </td>
+                            </tr>
+
+                        </table>
+                    </p>
+                </div>
+            </div>
+            <hr>
+
+    </center>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <center>
+                    <p>Copyright &copy;  UsamaKhalid  2015</p>
+                </center>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+
+    <script src="~/Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Script to Activate the Carousel -->
+    <script>
+
+
+
+        $(document).ready(function () {
+            $('li img').on('click', function () {
+                var src = $(this).attr('src');
+                var img = '<img src="' + src + '" class="img-responsive"/>';
+                $('#myModal').modal();
+                $('#myModal').on('shown.bs.modal', function () {
+                    $('#myModal .modal-body').html(img);
+                });
+                $('#myModal').on('hidden.bs.modal', function () {
+                    $('#myModal .modal-body').html('');
+                });
+            });
+        })
+
+        $('document').ready(
+        $('.carousel').carousel({
+            interval: 4000 //changes the speed
+        })
+        );
+    </script>
+</body>
+</html>

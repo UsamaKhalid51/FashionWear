@@ -1,0 +1,161 @@
+﻿@model OnlineStore.Models.item
+@using OnlineStore.Models
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Admin_Header.cshtml";
+    Session["Page"] = "AdminProducts";
+}
+
+
+<body>
+
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+    <div class="ch-container">
+        <div class="row">
+
+            <div id="content" class="col-lg-10 col-sm-10">
+                <!-- content starts -->
+                <div>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/Admin/Dashboard">Home</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/Products">Products</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="row">
+                    <div class="box col-md-12">
+                        <div class="box-inner">
+                            <div class="box-header well" data-original-title="">
+                                <h2><i class="glyphicon glyphicon-user"></i>Products</h2>
+
+                            </div>
+
+
+                            <div class="box-content" style="margin-right:15%;">
+
+
+                                @using (Html.BeginForm("UpdateItemSave", "Admin", FormMethod.Post, new { @class = "form-horizontal", @enctype = "multipart/form-data" }))
+                                {
+                                @Html.ValidationSummary(true)
+                                    @*<form class="form-horizontal" action="/Admin/UpdateItemSave" method="post">*@
+                                    <fieldset>
+
+                                        <!-- Form Name -->
+                                        <div style="font-size:30px;margin-left:400px; color:blue;font-weight:bold; font-family:'Segoe UI';">Update</div>
+
+                                        <br />
+
+
+                                        <input hidden name="item_Id" type="text" value=@Model.item_Id>
+
+
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="name">Name</label>
+                                            <div class="col-md-5">
+                                                @*<input id="name" name="name" type="text" value=@Model.name placeholder="Name" class="form-control input-md" required="">*@
+                                                @Html.EditorFor(x => x.name, new { @class = "form-control input-md", type = "text", placeholder = "Name" })
+                                           @Html.ValidationMessageFor(x => x.name)
+                                             </div>
+                                        </div>
+
+                                        <!-- Text input-->
+
+                                        <hr />
+                                        <label class="col-md-4 control-label">Brand</label>
+                                        <select name="brand" class="ui-tabs-selected" style="margin-left:8%;">
+
+                                            @foreach (var s in ViewBag.brandsList)
+                                            {
+
+                                                <option value=@s.bName>@s.bName</option>
+
+                                            }
+                                        </select>
+
+                                        <br /><br />
+                                        <hr />
+
+
+
+                                        <label class="col-md-4 control-label">Category</label>
+                                        <select id="CategorySelector" name="category" class="ui-tabs-selected" style="margin-left:6%;">
+
+                                            <option value="n">-select-</option>
+
+                                            @foreach (category s in ViewBag.catList)
+                                            {
+
+                                                <option value=@s.c_name>@s.c_name</option>
+
+                                            }
+                                        </select>
+
+                                        <br /><br />
+                                        <hr />
+                                        <label class="col-md-4 control-label">Sub Category</label>
+
+                                        <div id="d1" style="margin-left:9%;"></div>
+
+                                        <hr />
+
+                                        <br />
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="price">Price</label>
+                                            <div class="col-md-5">
+                                                @*<input id="price" name="price" type="text" value=@Model.price placeholder="price" class="form-control input-md" required="">*@
+                                                @Html.TextBoxFor(x => x.price, new { @class = "form-control input-md", type = "text", placeholder = "Price" })
+                                                @Html.ValidationMessageFor(x => x.price)
+                                             </div>
+                                        </div>
+
+                                        <!-- Button (Double) -->
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for=""></label>
+                                            <div class="col-md-8">
+
+                                                <input type="submit" class="btn btn-success" value="Update" />
+                                                <a href="/Admin/Products" class="btn btn-danger">Cancel </a>
+
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                    @*</form>*@
+
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div><!--/row-->
+                <!-- content ends -->
+            </div><!--/#content.col-md-0-->
+        </div><!--/fluid-row-->
+    </div><!--/.fluid-container-->
+
+
+    <script>
+
+    $('#CategorySelector').change(function () {
+        var value = $('#CategorySelector').val();
+
+        $('#d1').load('/Admin/category?cat=' + value);
+    });
+
+    </script>
+
+
+
+
+</body>

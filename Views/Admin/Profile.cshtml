@@ -1,0 +1,49 @@
+﻿@model OnlineStore.Models.item
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Admin_Header.cshtml";
+    
+}
+<div id="content" class="col-lg-10 col-sm-10">
+    <!-- content starts -->
+    <div>
+        <ul class="breadcrumb">
+            <li>
+                <a href="/Admin/Dashboard">Home</a>
+            </li>
+            <li>
+                <a href="/Admin/AddProduct">Admin Profile</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="box col-md-12">
+            <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                    <h2><i class="glyphicon glyphicon-edit"></i> Admin Profile</h2>
+
+                </div>
+                <div class="box-content">
+                  
+                    <div class="pull-right img-thumbnail"  style="margin-right:35px;">
+                        <img src="~/Content/img/admin.jpg" width="150" height="150" />
+                    </div>
+
+                    <label>Name: &nbsp; </label>Usama Khalid <br />
+                    <label>E-mail: &nbsp;</label>usamakhalid857@gmail.com<br />
+                    <label>Contact:&nbsp;</label> +923126871401<br />
+                    <label>Address:&nbsp; </label>Hostel # 17 Punjab University Lahore<br />
+
+                   
+
+                    <br />
+                    <br /><br /><br /><br /><br />
+                </div>
+            </div>
+        </div>
+        <!--/span-->
+    </div><!--/row-->
+    <!-- content ends -->
+</div><!--/#content.col-md-0-->

@@ -1,0 +1,102 @@
+﻿@using OnlineStore.Models
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My Cart</title>
+
+
+</head>
+
+<body style="background-color:#2C3E50; background-image: url('../../Content/mainSlider/blu-stripes.png'); ">
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+    <center>
+        <h1 style="margin-top:7%;"><font color="white" size="30">My Cart</font></h1>
+
+    </center>
+    <hr />
+
+    @{
+        double totalCost = 0.0;
+        double subtotal = 0.0;
+        int q = 0;
+        List<item> list = Model;
+        List<int> qList = ViewBag.q;
+    }
+    <center>
+
+        <div class="box-content">
+            <table class="table table-striped table-bordered bootstrap-datatable datatable responsive" style="margin-left:10%;width:750px;">
+                <thead style="background-color:white;color:black; padding:5px;font-weight:bold; font-family:Arial;font-size:20px;">
+                    <tr>
+                        <th>Item No</th>
+                        <th>Item</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>SubTotal</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color:white;">
+
+                    @foreach (item i in Model)
+                    {
+                        totalCost += int.Parse(i.price.Trim());
+                    }
+
+
+                    @for (int i = 0; i < list.Count(); i++)
+                    {
+                        subtotal = double.Parse(list[i].price) * qList[i];                    
+                        
+                            <tr>
+                                <td><input type="text"  value="@i" name="index" style="border:none;width:10px;"/></td>
+                                <td><img src="~/Files/@list[i].image_name.Trim()" height="50" width="50" alt="" /></td>                               
+                                 <td>@list[i].name</td>
+                                <td>@list[i].price</td>
+                                <td>@qList[i]</td>
+                                <td>@subtotal</td>                    
+                                <td> <a href="/Home/RemoveCartItem">Remove</a>  </td>
+                            </tr>                       
+                    } 
+
+                </tbody>
+            </table>
+        </div>
+    </center>
+   
+    <center>
+        <div style="margin-left:10%;width:750px; background-color:white; color:black;"><font color="black;" size="10">Total Cost:&nbsp; @totalCost</font></div>
+    </center>
+
+    <hr />
+
+    <center>
+        <form action="/Home/CheckOut" method="post">
+            <button type="submit" class="btn btn-success" value="Check Out">Check Out</button>
+
+        </form>
+    </center>
+    
+
+
+
+</body>
+
+</html>
+

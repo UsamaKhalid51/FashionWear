@@ -1,0 +1,161 @@
+﻿@using OnlineStore.Models
+
+@{
+    ViewBag.Title = "AddSubCategory";
+    Layout = "~/Views/Shared/_Admin_Header.cshtml";
+    Session["Page"] = "AddSubCategory";
+}
+
+
+@if (ViewBag.info != null)
+{
+    <script>alert('Sub-Category Already Exists in this Category!');</script>
+}
+
+
+<div id="content" class="col-lg-10 col-sm-10">
+    <!-- content starts -->
+    <div>
+        <ul class="breadcrumb">
+            <li>
+                <a href="/Admin/Dashboard">Home</a>
+            </li>
+            <li>
+                <a href="/Admin/AddSubCategory">Add Sub-Category</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <style>
+
+        
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > a:after {
+                display: block;
+                content: " ";
+                float: right;
+                width: 0;
+                height: 0;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
+
+            .dropdown-submenu:hover > a:after {
+            }
+
+            .dropdown-submenu.pull-left {
+                float: none;
+            }
+
+                .dropdown-submenu.pull-left > .dropdown-menu {
+                    left: -100%;
+                    margin-left: 10px;
+                    -webkit-border-radius: 6px 0 6px 6px;
+                    -moz-border-radius: 6px 0 6px 6px;
+                    border-radius: 6px 0 6px 6px;
+                }
+    </style>
+
+    <div class="row">
+        <div class="box col-md-12">
+            <div class="box-inner">
+                <div class="box-header well" data-original-title="">
+                    <h2><i class="glyphicon glyphicon-edit"></i> Add Sub-Category</h2>
+
+                </div>
+                <div class="box-content">
+                    <form action="/Admin/AddSubCategoryItem" method="post" enctype="multipart/form-data">
+
+                        <label> Current Categories / Sub-Categories</label><br />
+                        <ul class="nav nav-pills nav-stacked" style="width:300px;">
+
+                            @{
+
+                                <li class="active"><a href="#0" style="font-size:15px;"><span class="glyphicon glyphicon-paperclip"></span> Categories </a></li>
+                                foreach (category c in Model)
+                                {
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#0"><span>@c.c_name</span></a>
+                                        @if (c.subCategories.ToList().Count() != 0)
+                                        {
+
+                                            <ul class="dropdown-menu">
+
+                                                <li class="active"><a href="#" style="font-size:15px;"><span class="glyphicon glyphicon-paperclip"></span> @c.c_name </a></li>
+
+                                                @foreach (subCategory s in c.subCategories)
+                                                {
+
+                                                    <li> @s.subName</li>
+
+                                                }
+
+
+                                            </ul>
+                                        }
+                                    </li>
+                                }
+                            }
+
+
+                        </ul>
+
+
+
+
+
+
+                        <hr />
+                        <label>Category</label>
+                        <select name="cat" class="ui-tabs-selected" style="margin-left:8%;">
+
+                        
+                            @foreach (var s in Model)
+                            {
+
+                                <option value=@s.c_name>@s.c_name</option>
+
+                            }
+                        </select>
+
+
+                        <hr />
+                        <div class="form-group">
+                            <label>Sub-Category Name</label>
+                            <input type="text" class="form-control" name="subName" placeholder="Sub Category">
+                        </div>
+
+
+
+
+                        <br /><br />
+                        <hr />
+
+
+                        <button type="submit" class="btn btn-primary">Add Sub-Category</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--/span-->
+    </div><!--/row-->
+    <!-- content ends -->
+</div><!--/#content.col-md-0-->

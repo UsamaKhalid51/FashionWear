@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Admin_Header.cshtml";
+    Session["Page"] = "Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+    <div class="ch-container">
+        <div class="row">
+
+
+            <div id="content" class="col-lg-10 col-sm-10">
+                <!-- content starts -->
+                <div>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/Admin/Dashboard">Home</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/Dashboard">Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class=" row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <a data-toggle="tooltip" title="6 new members." class="well top-block" href="#">
+                            <i class="glyphicon glyphicon-user blue"></i>
+
+                            <div>Total Users</div>
+                            <div>@ViewBag.no_of_users</div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <a data-toggle="tooltip" title="4 new pro members." class="well top-block" href="#">
+                            <i class="glyphicon glyphicon-inbox green"></i>
+
+                            <div>Total Products</div>
+                            <div>@ViewBag.no_of_Products</div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <a data-toggle="tooltip" title="$34 new sales." class="well top-block" href="#">
+                            <i class="glyphicon glyphicon-comment yellow"></i>
+
+                            <div>Total Sale</div>
+                            <div>$5000</div>
+                        </a>
+                    </div>
+
+
+                    <div class="pull-right img-thumbnail" style="margin-right:35px;">
+                        <img src="~/Content/img/admin.jpg" width="150" height="150" />
+                    </div>
+                   
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>

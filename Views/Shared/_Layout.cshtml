@@ -1,0 +1,571 @@
+﻿@using OnlineStore.Models
+@{ user u = (user)HttpContext.Current.Session["user"];}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="shortcut icon" href="~/Content/favicon.ico" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="~/Content/sweealert/sweet-alert.js"></script>
+    <script src="~/Content/sweealert/sweet-alert.min.js"></script>
+    <link href="~/Content/sweealert/sweet-alert.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-2.1.1.js"></script>
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+   
+    <script>    
+
+
+    function showLoginMessage() {
+        swal("Login successful!", "User Verified", "success");
+    }
+
+    function registeredMessage() {
+        swal("User Registered Successfully!", "", "success");
+    }
+    </script>
+
+    
+
+
+
+
+
+</head>
+<body>
+
+
+    @if (ViewBag.info != null || ViewBag.login != null)
+    {
+        String msg = "user registered successfully!";
+        String s = "success";
+        String f = "failed";
+        String e = "alreadyexists";
+
+
+        if (s.Equals(ViewBag.login))
+        {
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    showLoginMessage();
+                 });
+
+                </script>
+        
+            ViewBag.login = null;
+        }
+        else if (f.Equals(ViewBag.login))
+        {
+            <script>alert('Login Failed!');</script>
+        }
+        else if (e.Equals(ViewBag.info))
+        {
+            <script>alert('User Already Exists!');</script>
+        }
+
+        if (msg.Equals(ViewBag.info))
+        {
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    registeredMessage();
+                });
+
+            </script>
+
+        }
+
+    }
+
+
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            
+        }  
+
+        .dropdown-submenu:hover > .dropdown-menu {
+                        display: block;
+                         margin-top:10px;
+                    }
+
+
+                .dropdown-submenu {
+                    position:static;
+
+                }
+
+                    .dropdown-submenu > .dropdown-menu {
+                        top: 0;
+                        left: 100%;
+                        margin-top: 6px;
+                        margin-left: -1px;
+                        -webkit-border-radius: 0 6px 6px 6px;
+                        -moz-border-radius: 0 6px 6px 6px;
+                        border-radius: 0 6px 6px 6px;
+                    }
+
+                    
+
+                    .dropdown-submenu > a:after {
+                        display: block;
+                        content: " ";
+                        float: right;
+                        width: 0;
+                        height: 0;
+                        margin-top: 15px;
+                        margin-right: -10px;
+                    }
+
+                    .dropdown-submenu:hover > a:after {
+                    }
+
+                    .dropdown-submenu.pull-left {
+                        float: none;
+                    }
+
+                        .dropdown-submenu.pull-left > .dropdown-menu {
+                            left: -100%;
+                            margin-left: 10px;
+                            -webkit-border-radius: 6px 0 6px 6px;
+                            -moz-border-radius: 6px 0 6px 6px;
+                            border-radius: 6px 0 6px 6px;
+                        }
+
+
+
+    </style>
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            @*<div class="navbar-header  pull-left">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+            </div>*@
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" style="margin-left:-97px;">
+                    <li>
+
+                        <a class="navbar-brand pull-left" href="#" style="color:#0094ff; font-size:30px;margin-left:-15px; font-weight:bolder; font-family:'Segoe Print';">Fashion Wear</a>
+
+                    </li>
+
+                    <li>
+
+
+                        <a href="/Home/Index" style="color:white;">Home</a>
+                    </li>
+                    <li class= "dropdown-submenu">
+                        <button class="btn btn-default " type="button" id="menu1" data-toggle="dropdown" style="background-color:#2a2828;color:white; margin-top:10px;border:none">
+                            Categories
+                            <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                        </button>
+
+
+ 
+                        <ul class="dropdown-menu" role="menu">
+
+                            @{
+
+                                foreach (category c in ViewBag.catList)
+                                {
+                                    <li class="dropdown-submenu" >
+                                        <a href="#0" style="background-color:#1f1e1e;color:white;">@c.c_name</a>
+
+                                        @if (c.subCategories.ToList().Count() != 0)
+                                        {
+
+                                            <ul class="dropdown-menu">
+
+                                                @foreach (subCategory s in c.subCategories)
+                                                {
+                                                    <li tabindex="-1">
+
+                                                        @*<a href="" style=" background-color:#1f1e1e;color:white">@s.subName</a>*@
+                                                       
+                                                        @Html.ActionLink(s.subName, "getSubCategory", s, new {@style = " background-color:#1f1e1e;color:white" })
+                                                    </li>
+
+                                                }
+                                            </ul>
+
+
+                                        }
+                                    </li>
+
+                                }
+
+
+                            }
+
+
+                        </ul>
+</li>
+
+
+                    <li class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="background-color:#2a2828; color:white; margin-top:10px;border:none">
+                            Brands
+                            <span class="caret"></span>
+                        </button>
+
+                        <ul class="dropdown-menu" role="menu">
+
+                            @foreach (brand p in ViewBag.brandsList)
+                            {
+                                <li role="presentation">                            
+                                    @Html.ActionLink(p.bName, "getBrand", p, new { @style = " background-color:#1f1e1e;color:white" })
+                                </li>
+                            }
+                           
+                            
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="/Home/About" style="color:white;">About</a>
+                    </li>
+
+                    @if (u != null)
+                    {
+                        <li>
+                            <a href="/Home/MyCart" class="glyphicon glyphicon-shopping-cart" style="color:white;font-size:16px;">&nbsp;MyCart</a>
+                        </li>
+
+                        <li>
+                            <a href="/Home/userHistory" class="glyphicon glyphicon-dashboard" style="color:white;font-size:16px;">&nbsp;MyHistory</a>
+                        </li>
+                    }
+                    
+                </ul>
+
+
+
+                <div class="pull-right" style="margin-top:8px;">
+                    <nav>
+
+
+                        <form method="post" action="/Home/Search">
+
+                            <ul class="navbar-nav" style="margin-right:-97px;">
+
+
+                                <li>
+                                    <input type="text" name="str" placeholder="Search" class="form-control" />
+
+                                </li>
+
+                                <li style="margin-left:20px;">
+                                    <div style="margin-bottom:0px; margin-top:0px; ">
+                                        <input type="submit" class="btn btn-primary" value="Search" />
+                                    </div>
+                                </li>
+
+                                @if (u == null)
+                                {
+                                    <li style="margin-left:10px;">
+                                        <div class="main-nav" style="margin-bottom:-20px">
+                                            <a class="cd-signin " href="#0">Account</a>
+                                        </div>
+                                    </li>
+                                }
+
+                                @if (u != null && u.type != null)
+                                {
+
+
+                                    <li style="margin-left:20px;">
+                                        <div style="margin-bottom:0px; margin-top:6px; ">
+                                            <a style="color:white; border:1px solid ;padding:7px; border-radius:15px;" href="/Admin/Index">Admin Panel</a>
+                                        </div>
+
+                                    </li>
+
+
+                                    <li style="margin-left:10px;">
+                                        <div style="margin-bottom:0px; margin-top:6px; ">
+                                            <a style="color:white; border:0.5px solid ;padding:7px; border-radius:15px;" href="/Home/Logout">Logout</a>
+                                        </div>
+                                    </li>
+                                }
+
+                            </ul>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+
+        </div>   <!-- /.navbar-collapse -->
+    </nav>
+
+    <link href="~/Content/signin/css/style.css" rel="stylesheet" />
+    <link href="~/Content/signin/css/reset.css" rel="stylesheet" />
+    <script src="~/Content/signin/css/modernizr.js"></script>
+    <script src="~/Content/signin/css/main.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+
+    <script>
+
+        function checkEmail()
+        {
+
+            var email = document.getElementById('name').value;
+
+
+
+            if ((email.indexOf('@@') < 0) || email.lastIndexOf('.') < 0 || (email.lastIndexOf('.') - email.lastIndexOf('@@') < 2))
+            {
+                alert('Please Enter Valid E-mail !!');
+                return false;
+            }
+
+
+        }
+
+
+    </script>
+
+    
+
+
+    @*<div class="row">
+        <div class="col-sm-2 text-center">
+            <p><button class="btn btn-primary sweet-2" onclick="show()">Try It</button></p>
+        </div>
+
+    </div>*@
+
+
+    
+
+
+
+    <div class="cd-user-modal">
+        <!-- this is the entire modal form, including the background -->
+        <div class="cd-user-modal-container">
+            <!-- this is the container wrapper -->
+            <ul class="cd-switcher">
+                <li><a href="#0">Sign in</a></li>
+                <li><a href="#0">New account</a></li>
+            </ul>
+            <div id="cd-login">
+
+
+
+                <!-- log in form -->
+
+
+                <form class="cd-form" action="~/Home/VerifyLogin" method="post">
+                    <p class="fieldset">
+                        <label class="image-replace cd-email" for="signin-email">E-mail</label>
+                        <input class="full-width has-padding has-border" id="name" type="text" name="email" placeholder="E-mail">
+                        <span class="cd-error-message">Error message here!</span>
+                    </p>
+                    <p class="fieldset">
+                        <label class="image-replace cd-password" for="signin-password">Password</label>
+                        <input class="full-width has-padding has-border" id="signin-password" type="text" name="password" placeholder="Password">
+                        <a href="#0" class="hide-password">Hide</a>
+                        <span class="cd-error-message">Error message here!</span>
+                    </p>
+                    <p class="fieldset">
+                        <input type="checkbox" id="remember-me" checked>
+                        <label for="remember-me">Remember me</label>
+                    </p>
+                    <p class="fieldset">
+                        <input class="full-width" type="submit" value="Login" >
+                    </p>
+                </form>
+
+                <p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+                <!-- <a href="#0" class="cd-close-form">Close</a> -->
+            </div> <!-- cd-login -->
+            <div id="cd-signup">
+
+
+                <!-- sign up form -->
+
+
+                <form class="cd-form" action="~/Home/Verify" method="post">
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="signup-username">Username</label>
+                        <input class="full-width has-padding has-border" id="signup-username" name="name" type="text" required placeholder="Username">
+                        <span id="nameCheck1"></span>
+                    </p>
+                                        
+                        
+                    
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-email" for="signup-email">E-mail</label>
+                        <input class="full-width has-padding has-border" id="signup-email" name="email" type="email" placeholder="E-mail">
+                        <span id="mailCheck" style="color:red;"></span>
+                    </p>
+                    <p class="fieldset">
+                        <label class="image-replace cd-password" for="signup-password">Password</label>
+                        <input class="full-width has-padding has-border" id="signup-password" name="password" type="text" placeholder="Password" required>
+                        <a href="#0" class="hide-password">Hide</a>
+                        <span class="cd-error-message">Error message here!</span>
+                    </p>
+                    <p class="fieldset">
+                        <input type="checkbox" id="accept-terms">
+                        <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+                    </p>
+                    <p class="fieldset">
+
+                        <input class="full-width has-padding" type="submit" value="Create account">
+
+                    </p>
+                </form>
+                <!-- <a href="#0" class="cd-close-form">Close</a> -->
+            </div> <!-- cd-signup -->
+            <div id="cd-reset-password">
+                <!-- reset password form -->
+                <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+                <form class="cd-form">
+                    <p class="fieldset">
+                        <label class="image-replace cd-email" for="reset-email">E-mail</label>
+                        <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+                        <span class="cd-error-message">Error message here!</span>
+                    </p>
+                    <p class="fieldset">
+                        <input class="full-width has-padding" type="submit" value="Reset password">
+                    </p>
+                </form>
+                <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+            </div> <!-- cd-reset-password -->
+            <a href="#0" class="cd-close-form">Close</a>
+        </div> <!-- cd-user-modal-container -->
+    </div> <!-- cd-user-modal -->
+
+    <link href="~/Content/css/footer.css" rel="stylesheet" />
+
+    <br /><br />
+
+
+    @RenderBody()
+
+
+    <!-- Footer -->
+    <br /><br />
+    <br /><br /><br /><br />
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    
+    <footer class="footer-distributed" style=" margin-bottom: -100px;">
+
+        <div class="footer-left">
+
+            <h3>Fashion<span>Wear</span></h3>
+
+            <p class="footer-links">
+                <a href="#">Home</a>
+                ·
+                <a href="#">Blog</a>
+                ·
+                <a href="#">Pricing</a>
+                ·
+                <a href="#">About</a>
+                ·
+                <a href="#">Faq</a>
+                ·
+                <a href="#">Contact</a>
+            </p>
+
+            <p class="footer-company-name">Usama Khalid &copy; 2015</p>
+        </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Hostel # 17</span> Punjab University ,Lahore</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+923126871401</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">arrowhead_51@yahoo.com</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span>About the company</span>
+                Fahsion Wear was Established in 2015
+            </p>
+
+            <div class="footer-icons">
+
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+    <script>
+
+        $('#signup-username').keyup( function () {
+
+            var value = $('#signup-username').val();
+
+            $('#nameCheck1').load('/Home/nameCheck?cat=' + value);
+
+        });
+
+
+
+        $('#signup-email').keyup(function () {
+
+            var value = $('#signup-email').val();
+
+            $('#mailCheck').load('/Home/mailCheck?cat=' + value);
+
+        });
+
+    </script>
+</body>
+</html>
