@@ -10,15 +10,18 @@
     <hr />
 </div>
 
+
 @{
     List<item> list = new List<item>();
     list = ViewBag.LatestItemsList;
 }
 
+
+
 @if(list.Count > 13)
 { 
 
-@for (int i = 0; i < 12; i++)
+for (int i = 0; i < 12; i++)
 {
 
     String src = list[i].item_Id + "_img_" + 1 + ".jpg";
