@@ -48,27 +48,32 @@
                                         @foreach (user u in Model)
                                         {
 
-
-                                            <tr>
-                                                <td>@u.name</td>
-                                                <td>@u.email</td>
-                                                <td>@u.password</td>
-
-                                                <td class="center">
-
-                                                    <i class="glyphicon glyphicon-trash icon-white btn btn-info">
-                                                        @Html.ActionLink("Edit", "UpdateUser", u, new { @style = "color:white;font-size:15px; font-weight:bold;" })
-                                                    </i>
-
-                                                    <i class="glyphicon glyphicon-trash icon-white btn btn-danger">
-                                                        @Html.ActionLink("Delete", "DeleteUser", u, new { @style = "color:white;font-size:15px; font-weight:bold;" })
-                                                    </i>
+                                            if (!u.type.Equals("admin_m"))
+                                            {
 
 
+                                                <tr>
+                                                    <td>@u.name</td>
+                                                    <td>@u.email</td>
+                                                    <td>@u.password</td>
+
+                                                    <td class="center">
+
+                                                        <i class="glyphicon glyphicon-trash icon-white btn btn-info">
+                                                            @Html.ActionLink("Edit", "UpdateUser", u, new { @style = "color:white;font-size:15px; font-weight:bold;" })
+                                                        </i>
+
+                                                        <i class="glyphicon glyphicon-trash icon-white btn btn-danger">
+                                                            @Html.ActionLink("Delete", "DeleteUser", u, new { @style = "color:white;font-size:15px; font-weight:bold;" })
+                                                        </i>
 
 
-                                                </td>
-                                            </tr>
+
+
+                                                    </td>
+                                                </tr>
+
+                                            }
 
                                         }
 

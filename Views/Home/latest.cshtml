@@ -6,26 +6,34 @@
 
 
 <div class="col-lg-12">
-    <h1 style="color:#1b1b1b; font-size:30px;margin-left:9%;font-family:Bebas Neue; font-weight:bold; ">Latest Products</h1>
+    <h1 style="color:#1b1b1b; font-size:30px;margin-left:9%;font-family:Bebas Neue; font-weight:bolder; ">Latest Products</h1>
     <hr />
 </div>
 
+
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Content/fancybox/jquery-1.7.2.min.js"></script>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Content/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<link href="~/Content/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+<script src="~/Content/fancybox/source/jquery.fancybox.js"></script>
+<script src="~/Content/fancybox/source/jquery.fancybox.pack.js"></script>
+<link href="~/Content/fancybox/source/helpers/jquery.fancybox-buttons.css" rel="stylesheet" />
+<link href="~/Content/fancybox/source/helpers/jquery.fancybox-thumbs.css" rel="stylesheet" />
+<script src="~/Content/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
+<script src="~/Content/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+<script src="~/Content/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
 
 @{
     List<item> list = new List<item>();
     list = ViewBag.LatestItemsList;
 }
 
-
-
-@if(list.Count > 13)
-{ 
-
-for (int i = 0; i < 12; i++)
+@for (int i = 0; i < 12; i++)
 {
 
     String src = list[i].item_Id + "_img_" + 1 + ".jpg";
-    
+
     <div class="col-lg-3 col-md-4 col-xs-6" style="height:310px; ">
 
         @if (i % 2 == 0)
@@ -33,7 +41,7 @@ for (int i = 0; i < 12; i++)
             <div class="ribbon"><span>Popular</span></div>
         }
 
-        <a href="~/Files/@src" class=" thumbnail" style="color:#1b1b1b;box-shadow: 5px 5px 2px #888888;border:1px solid black;border-radius:0px; background-color:#ffffff" rel="lightbox">
+        <a href="~/Files/@src" class=" thumbnail fancybox" style="color:#1b1b1b;box-shadow: 5px 5px 2px #888888;border:1px solid black;border-radius:0px; background-color:#ffffff" rel="lightbox">
             <img src="~/Files/@src" alt="" style="height:150px;width:150px;">
 
 
@@ -54,7 +62,20 @@ for (int i = 0; i < 12; i++)
 
         }
     </div>
-    
 }
-}
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+         *  Simple image gallery. Uses default settings
+         */
+
+        $('.fancybox').fancybox();
+
+    });
+
+</script>
 
