@@ -307,9 +307,11 @@
 
                     foreach (item i in Model)
                     {
+                        String src = i.item_Id + "_img_" + 1 + ".jpg";
+                        
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb setFont">
-                            <a href="~/Files/@i.image_name" class=" thumbnail" style="color:#1b1b1b;border:1px solid black;border-radius:0px;box-shadow: 5px 5px 2px #888888; background-color:#ffffff;" rel="lightbox">
-                                <img src="~/Files/@i.image_name" alt="" style="height:150px;width:150px;" />
+                            <a href="~/Files/@src" class=" thumbnail" style="color:#1b1b1b;border:1px solid black;border-radius:0px;box-shadow: 5px 5px 2px #888888; background-color:#ffffff;" rel="lightbox">
+                                <img src="~/Files/@src" alt="" style="height:150px;width:150px;" />
 
                                 Item ID: @i.item_Id<br />
                                 Item: @i.name

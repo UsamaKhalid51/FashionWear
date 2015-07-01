@@ -122,89 +122,130 @@
     <h1 style="color:#1b1b1b; font-size:30px;margin-left:9%;font-family:Bebas Neue; font-weight:bolder; ">Featured Products</h1>
     <hr />
 
-    @if(PopularList.Count > 12)
-    { 
+    @if (PopularList.Count >= 13)
+    {
+        String src = PopularList[0].item_Id + "_img_" + 1 + ".jpg";
 
-    <div class="container" style="margin-left:7%; border:7px solid; border-color:#BBB; background-color:#1b1b1b">
-        <div class="col-md-12">
+        <div class="container" style="margin-left:7%; border:7px solid; border-color:#BBB; background-color:#1b1b1b">
+            <div class="col-md-12">
 
-            <div class="well-none">
-                <div id="myCarousel" class="carousel slide">
+                <div class="well-none">
+                    <div id="myCarousel" class="carousel slide">
 
-                    <!-- Carousel items -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="row">
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[0].image_name" alt="Image" style="height:200px;width:auto"></a>
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
+                                    </div>
+                                    @{
+        src = PopularList[1].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
+                                    </div>
+
+                                    @{
+        src = PopularList[2].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" style="height:200px;width:auto"></a>
+                                    </div>
+
+                                    @{
+        src = PopularList[3].item_Id + "_img_" + 3 + ".jpg";
+                                    }
+
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" style="height:200px;width:auto"></a>
+                                    </div>
                                 </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[1].image_name" alt="Image" style="height:200px;width:auto"></a>
-                                </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[2].image_name" style="height:200px;width:auto"></a>
-                                </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[3].image_name" style="height:200px;width:auto"></a>
-                                </div>
+                                <!--/row-->
                             </div>
-                            <!--/row-->
-                        </div>
-                        <!--/item-->
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x col-xs-6"><img src="~/Files/@PopularList[4].image_name" alt="Image" style="height:200px;width:auto"></a>
+                            <!--/item-->
+                            <div class="item">
+                                <div class="row">
+
+                                    @{
+        src = PopularList[4].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x col-xs-6"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
+                                    </div>
+                                    @{
+        src = PopularList[5].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
+                                    </div>
+                                    @{
+        src = PopularList[6].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
+                                    </div>
+                                    @{
+                                              src = PopularList[7].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
+                                    </div>
                                 </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[5].image_name" alt="Image" style="height:200px;width:auto"></a>
-                                </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[6].image_name" alt="Image" style="height:200px;width:auto"></a>
-                                </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[7].image_name" alt="Image" style="height:200px;width:auto"></a>
-                                </div>
+                                <!--/row-->
                             </div>
-                            <!--/row-->
-                        </div>
-                        <!--/item-->
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[8].image_name" alt="Image" style="height:200px;width:auto"></a>
+                            <!--/item-->
+                            <div class="item">
+                                <div class="row">
+                                    @{
+                                      src = PopularList[8].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
+                                    </div>
+                                    @{
+                                      src = PopularList[9].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
+                                    </div>
+                                    @{
+                                            src = PopularList[10].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
+                                    </div>
+                                    @{
+                                        src = PopularList[11].item_Id + "_img_" + 1 + ".jpg";
+                                    }
+                                    <div class="col-sm-3 col-xs-6">
+                                        <a href="#x"><img src="~/Files/@src" alt=" image" style="height:200px;width:auto"></a>
+                                    </div>
                                 </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[9].image_name" alt="Image" style="height:200px;width:auto"></a>
-                                </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[10].image_name" alt="Image" style="height:200px;width:auto"></a>
-                                </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[11].image_name" alt=" image" style="height:200px;width:auto"></a>
-                                </div>
+                                <!--/row-->
                             </div>
-                            <!--/row-->
+                            <!--/item-->
                         </div>
-                        <!--/item-->
+                        <!--/carousel-inner-->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-triangle-left"></i></a>
+
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-triangle-right"></i></a>
                     </div>
-                    <!--/carousel-inner-->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-triangle-left"></i></a>
-
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-triangle-right"></i></a>
+                    <!--/myCarousel-->
                 </div>
-                <!--/myCarousel-->
+                <!--/well-->
             </div>
-            <!--/well-->
         </div>
-    </div>
 
 
-    <br />
+        <br />
 
-    <h1 style="color:#1b1b1b; font-size:30px;margin-left:9%;font-family:Bebas Neue; font-weight:bolder; ">Latest Products</h1>
-    <hr />
+        <h1 style="color:#1b1b1b; font-size:30px;margin-left:9%;font-family:Bebas Neue; font-weight:bolder; ">Popular Products</h1>
+        <hr />
     <!--SECOND MINI SLIDER-->
+
     <div class="container" style="margin-left:7%; border:7px solid; border-color:#BBB; background-color:#1b1b1b">
         <div class="col-md-12">
 
@@ -215,17 +256,35 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="row">
+                                
+                                @{
+        src = PopularList[11].item_Id + "_img_" + 1 + ".jpg";
+                                }
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[0].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
                                 </div>
+                                @{
+        src = PopularList[11].item_Id + "_img_" + 1 + ".jpg";
+                                }
+
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[1].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
                                 </div>
+
+                                @{
+        src = PopularList[10].item_Id + "_img_" + 1 + ".jpg";
+                                }
+
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[2].image_name" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" style="height:200px;width:auto"></a>
                                 </div>
+
+                                @{
+        src = PopularList[9].item_Id + "_img_" + 1 + ".jpg";
+                                }
+
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[3].image_name" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" style="height:200px;width:auto"></a>
                                 </div>
                             </div>
                             <!--/row-->
@@ -233,17 +292,30 @@
                         <!--/item-->
                         <div class="item">
                             <div class="row">
+
+                                @{
+        src = PopularList[8].item_Id + "_img_" + 1 + ".jpg";
+                                }
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x col-xs-6"><img src="~/Files/@PopularList[4].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                    <a href="#x col-xs-6"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
                                 </div>
+                                @{
+        src = PopularList[5].item_Id + "_img_" + 1 + ".jpg";
+                                }
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[5].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
                                 </div>
+                                @{
+        src = PopularList[6].item_Id + "_img_" + 1 + ".jpg";
+                                }
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[6].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
                                 </div>
+                                @{
+        src = PopularList[3].item_Id + "_img_" + 1 + ".jpg";
+                                }
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[7].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
                                 </div>
                             </div>
                             <!--/row-->
@@ -251,17 +323,29 @@
                         <!--/item-->
                         <div class="item">
                             <div class="row">
+                                @{
+        src = PopularList[2].item_Id + "_img_" + 1 + ".jpg";
+                                }
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[8].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
                                 </div>
+                                @{
+        src = PopularList[1].item_Id + "_img_" + 1 + ".jpg";
+                                }
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[9].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
                                 </div>
+                                @{
+        src = PopularList[0].item_Id + "_img_" + 1 + ".jpg";
+                                }
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[10].image_name" alt="Image" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" alt="Image" style="height:200px;width:auto"></a>
                                 </div>
+                                @{
+        src = PopularList[8].item_Id + "_img_" + 1 + ".jpg";
+                                }
                                 <div class="col-sm-3 col-xs-6">
-                                    <a href="#x"><img src="~/Files/@PopularList[11].image_name" alt=" image" style="height:200px;width:auto"></a>
+                                    <a href="#x"><img src="~/Files/@src" alt=" image" style="height:200px;width:auto"></a>
                                 </div>
                             </div>
                             <!--/row-->
@@ -280,7 +364,7 @@
     </div>
 
 
-        
+
     }
     <!-- Script to Activate the Carousel -->
     <script>
@@ -298,205 +382,213 @@
     <!-- END SECTION FOR THUMNAIL SLIDER=====================================================================================-->
 
     <style>
+        body::-webkit-scrollbar {
+            width: 1em;
+        }
+
+        body::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+        }
+
+        .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+            color: #fff;
+            background-color: #1b1b1b;
+        }
+
+        .margintop20 {
+            margin-top: 20px;
+        }
+
+        .nav-pills > li > a {
+            border-radius: 0px;
+            background-color: #dadada;
+        }
+
+        ul li a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0094ff;
+            text-decoration: none;
+        }
 
 
-                        body::-webkit-scrollbar {
-                    width: 1em;
+        .nav-stacked > li + li {
+            margin-top: 0px;
+            margin-left: 0;
+            border-bottom: 1px solid #dadada;
+            border-left: 1px solid #dadada;
+            border-right: 1px solid #dadada;
+        }
+
+        .active2 {
+            border-right: 4px solid #428bca;
+        }
+
+
+
+
+
+
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > a:after {
+                display: block;
+                content: " ";
+                float: right;
+                width: 0;
+                height: 0;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
+
+            .dropdown-submenu:hover > a:after {
+            }
+
+            .dropdown-submenu.pull-left {
+                float: none;
+            }
+
+                .dropdown-submenu.pull-left > .dropdown-menu {
+                    left: -100%;
+                    margin-left: 10px;
+                    -webkit-border-radius: 6px 0 6px 6px;
+                    -moz-border-radius: 6px 0 6px 6px;
+                    border-radius: 6px 0 6px 6px;
                 }
 
-                body::-webkit-scrollbar-track {
-                    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-                }
-
-                body::-webkit-scrollbar-thumb {
-                  background-color: darkgrey;
-                  outline: 1px solid slategrey;
-                }
-                        .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-                            color: #fff;
-                            background-color: #1b1b1b;
-                        }
-
-                        .margintop20 {
-                            margin-top: 20px;
-                        }
-
-                        .nav-pills > li > a {
-                            border-radius: 0px;
-                            background-color: #dadada;
-                        }
-
-                        ul li a {
-                            color: #000;
-                            text-decoration: none;
-                        }
-
-                        a:hover {
-                            color: #0094ff;
-                            text-decoration: none;
-                        }
 
 
-                        .nav-stacked > li + li {
-                            margin-top: 0px;
-                            margin-left: 0;
-                            border-bottom: 1px solid #dadada;
-                            border-left: 1px solid #dadada;
-                            border-right: 1px solid #dadada;
-                        }
-
-                        .active2 {
-                            border-right: 4px solid #428bca;
-                        }
-
-
-
-
-
-
-
-                        .dropdown-submenu {
-                            position: relative;
-                        }
-
-                            .dropdown-submenu > .dropdown-menu {
-                                top: 0;
-                                left: 100%;
-                                margin-top: -6px;
-                                margin-left: -1px;
-                                -webkit-border-radius: 0 6px 6px 6px;
-                                -moz-border-radius: 0 6px 6px 6px;
-                                border-radius: 0 6px 6px 6px;
-                            }
-
-                            .dropdown-submenu:hover > .dropdown-menu {
-                                display: block;
-                            }
-
-                            .dropdown-submenu > a:after {
-                                display: block;
-                                content: " ";
-                                float: right;
-                                width: 0;
-                                height: 0;
-                                margin-top: 5px;
-                                margin-right: -10px;
-                            }
-
-                            .dropdown-submenu:hover > a:after {
-                            }
-
-                            .dropdown-submenu.pull-left {
-                                float: none;
-                            }
-
-                                .dropdown-submenu.pull-left > .dropdown-menu {
-                                    left: -100%;
-                                    margin-left: 10px;
-                                    -webkit-border-radius: 6px 0 6px 6px;
-                                    -moz-border-radius: 6px 0 6px 6px;
-                                    border-radius: 6px 0 6px 6px;
-                                }
-
-
-
-                                /*SEARCH RANGE STYLYING*/
+        /*SEARCH RANGE STYLYING*/
 
         input[type=range] {
-          -webkit-appearance: none;
-          width: 100%;
-          margin: 6.85px 0;
-        }
-        input[type=range]:focus {
-          outline: none;
-        }
-        input[type=range]::-webkit-slider-runnable-track {
-          width: 100%;
-          height: 2.3px;
-          cursor: pointer;
-          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-          background: #1b79a9;
-          border-radius: 0.4px;
-          border: 0.2px solid #010101;
-        }
-        input[type=range]::-webkit-slider-thumb {
-          box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
-          border: 0px solid rgba(0, 0, 0, 0);
-          height: 16px;
-          width: 10px;
-          border-radius: 25px;
-          background: #ffffff;
-          cursor: pointer;
-          -webkit-appearance: none;
-          margin-top: -7.05px;
-        }
-        input[type=range]:focus::-webkit-slider-runnable-track {
-          background: #208fc8;
-        }
-        input[type=range]::-moz-range-track {
-          width: 100%;
-          height: 2.3px;
-          cursor: pointer;
-          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-          background: #1b79a9;
-          border-radius: 0.4px;
-          border: 0.2px solid #010101;
-        }
-        input[type=range]::-moz-range-thumb {
-          box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
-          border: 0px solid rgba(0, 0, 0, 0);
-          height: 16px;
-          width: 10px;
-          border-radius: 25px;
-          background: #ffffff;
-          cursor: pointer;
-        }
-        input[type=range]::-ms-track {
-          width: 100%;
-          height: 2.3px;
-          cursor: pointer;
-          background: transparent;
-          border-color: transparent;
-          color: transparent;
-        }
-        input[type=range]::-ms-fill-lower {
-          background: #16638a;
-          border: 0.2px solid #010101;
-          border-radius: 0.8px;
-          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        }
-        input[type=range]::-ms-fill-upper {
-          background: #1b79a9;
-          border: 0.2px solid #010101;
-          border-radius: 0.8px;
-          box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        }
-        input[type=range]::-ms-thumb {
-          box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
-          border: 0px solid rgba(0, 0, 0, 0);
-          height: 16px;
-          width: 10px;
-          border-radius: 25px;
-          background: #ffffff;
-          cursor: pointer;
-          height: 2.3px;
-        }
-        input[type=range]:focus::-ms-fill-lower {
-          background: #1b79a9;
-        }
-        input[type=range]:focus::-ms-fill-upper {
-          background: #208fc8;
+            -webkit-appearance: none;
+            width: 100%;
+            margin: 6.85px 0;
         }
 
+            input[type=range]:focus {
+                outline: none;
+            }
 
+            input[type=range]::-webkit-slider-runnable-track {
+                width: 100%;
+                height: 2.3px;
+                cursor: pointer;
+                box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+                background: #1b79a9;
+                border-radius: 0.4px;
+                border: 0.2px solid #010101;
+            }
+
+            input[type=range]::-webkit-slider-thumb {
+                box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
+                border: 0px solid rgba(0, 0, 0, 0);
+                height: 16px;
+                width: 10px;
+                border-radius: 25px;
+                background: #ffffff;
+                cursor: pointer;
+                -webkit-appearance: none;
+                margin-top: -7.05px;
+            }
+
+            input[type=range]:focus::-webkit-slider-runnable-track {
+                background: #208fc8;
+            }
+
+            input[type=range]::-moz-range-track {
+                width: 100%;
+                height: 2.3px;
+                cursor: pointer;
+                box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+                background: #1b79a9;
+                border-radius: 0.4px;
+                border: 0.2px solid #010101;
+            }
+
+            input[type=range]::-moz-range-thumb {
+                box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
+                border: 0px solid rgba(0, 0, 0, 0);
+                height: 16px;
+                width: 10px;
+                border-radius: 25px;
+                background: #ffffff;
+                cursor: pointer;
+            }
+
+            input[type=range]::-ms-track {
+                width: 100%;
+                height: 2.3px;
+                cursor: pointer;
+                background: transparent;
+                border-color: transparent;
+                color: transparent;
+            }
+
+            input[type=range]::-ms-fill-lower {
+                background: #16638a;
+                border: 0.2px solid #010101;
+                border-radius: 0.8px;
+                box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            }
+
+            input[type=range]::-ms-fill-upper {
+                background: #1b79a9;
+                border: 0.2px solid #010101;
+                border-radius: 0.8px;
+                box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            }
+
+            input[type=range]::-ms-thumb {
+                box-shadow: 0px 0px 1px #000000, 0px 0px 0px #0d0d0d;
+                border: 0px solid rgba(0, 0, 0, 0);
+                height: 16px;
+                width: 10px;
+                border-radius: 25px;
+                background: #ffffff;
+                cursor: pointer;
+                height: 2.3px;
+            }
+
+            input[type=range]:focus::-ms-fill-lower {
+                background: #1b79a9;
+            }
+
+            input[type=range]:focus::-ms-fill-upper {
+                background: #208fc8;
+            }
     </style>
 
 
 
     <script>
 
-        function lat()
-        {
+        function lat() {
             $('#d1').load('/Home/li');
         }
 
@@ -509,16 +601,16 @@
 
         function fc() {
             //$('#rangeInput').onInput(function () {
-                var value = $('#rangeInput').val();
+            var value = $('#rangeInput').val();
 
-                $('#d1').load('/Home/rangeSearch?cat=' + value);
+            $('#d1').load('/Home/rangeSearch?cat=' + value);
             //});
         }
     </script>
 
 
 
- 
+
 
     <div class="container">
         <div class="row">
@@ -573,7 +665,7 @@
 
                                         }
 
-                                       
+
                                     </ul>
                                 }
                             </li>
@@ -712,20 +804,20 @@
 
 
     @*<div class="row">
-        <div class="col-sm-2 text-center">
-            <p><button class="btn btn-primary sweet-2" onclick="show()">Try It</button></p>
+            <div class="col-sm-2 text-center">
+                <p><button class="btn btn-primary sweet-2" onclick="show()">Try It</button></p>
+            </div>
+
         </div>
 
-    </div>
 
+        <script>
 
-    <script>
+            function show() {
+                swal("Good job!", "You clicked the button!", "success");
+            }
 
-        function show() {
-            swal("Good job!", "You clicked the button!", "success");
-        }
-
-    </script>*@
+        </script>*@
 
 
 </body>

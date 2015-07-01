@@ -33,6 +33,18 @@
     function registeredMessage() {
         swal("User Registered Successfully!", "", "success");
     }
+
+
+    function loginFailed() {
+        swal("Login failed!", "", "error");
+    }
+
+
+    
+    function alreadyRegistered() {
+        swal("User Already Exists!", "", "error");
+    }
+
     </script>
 
     
@@ -62,27 +74,44 @@
                  });
 
                 </script>
-        
+
             ViewBag.login = null;
         }
         else if (f.Equals(ViewBag.login))
         {
-            <script>alert('Login Failed!');</script>
-        }
-        else if (e.Equals(ViewBag.info))
-        {
-            <script>alert('User Already Exists!');</script>
-        }
 
-        if (msg.Equals(ViewBag.info))
-        {
             <script type="text/javascript">
                 $(document).ready(function () {
-                    registeredMessage();
+                    loginFailed();
                 });
 
             </script>
 
+            ViewBag.login = null;
+
+
+            @*<script>alert('Login Failed!');</script>*@
+        }
+        else if (e.Equals(ViewBag.info))
+        {
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    alreadyRegistered();
+                });
+            </script>
+
+            @*<script>alert('User Already Exists!');</script>*@
+        }
+
+        if (msg.Equals(ViewBag.info))
+        {
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    registeredMessage();
+                });
+            </script>
         }
 
     }
@@ -275,7 +304,7 @@
 
 
                                 <li>
-                                    <input type="text" name="str" placeholder="Search" class="form-control" />
+                                    <input type="text" name="str" required placeholder="Search" class="form-control" />
 
                                 </li>
 
@@ -384,12 +413,12 @@
                 <form class="cd-form" action="~/Home/VerifyLogin" method="post">
                     <p class="fieldset">
                         <label class="image-replace cd-email" for="signin-email">E-mail</label>
-                        <input class="full-width has-padding has-border" id="name" type="text" name="email" placeholder="E-mail">
+                        <input class="full-width has-padding has-border" id="name" required maxlength="45" type="text" name="email" placeholder="E-mail">
                         <span class="cd-error-message">Error message here!</span>
                     </p>
                     <p class="fieldset">
                         <label class="image-replace cd-password" for="signin-password">Password</label>
-                        <input class="full-width has-padding has-border" id="signin-password" type="text" name="password" placeholder="Password">
+                        <input class="full-width has-padding has-border" id="signin-password" type="text" required maxlength="45" name="password" placeholder="Password">
                         <a href="#0" class="hide-password">Hide</a>
                         <span class="cd-error-message">Error message here!</span>
                     </p>
@@ -414,7 +443,7 @@
                 <form class="cd-form" action="~/Home/Verify" method="post">
                     <p class="fieldset">
                         <label class="image-replace cd-username" for="signup-username">Username</label>
-                        <input class="full-width has-padding has-border" id="signup-username" name="name" type="text" required placeholder="Username">
+                        <input class="full-width has-padding has-border" required maxlength="45" id="signup-username" name="name" type="text" required placeholder="Username">
                         <span id="nameCheck1"></span>
                     </p>
                                         
@@ -423,12 +452,12 @@
 
                     <p class="fieldset">
                         <label class="image-replace cd-email" for="signup-email">E-mail</label>
-                        <input class="full-width has-padding has-border" id="signup-email" name="email" type="email" placeholder="E-mail">
+                        <input class="full-width has-padding has-border" required maxlength="45" id="signup-email" name="email" type="email" placeholder="E-mail">
                         <span id="mailCheck" style="color:red;"></span>
                     </p>
                     <p class="fieldset">
                         <label class="image-replace cd-password" for="signup-password">Password</label>
-                        <input class="full-width has-padding has-border" id="signup-password" name="password" type="text" placeholder="Password" required>
+                        <input class="full-width has-padding has-border" required maxlength="45" id="signup-password" name="password" type="text" placeholder="Password" required>
                         <a href="#0" class="hide-password">Hide</a>
                         <span class="cd-error-message">Error message here!</span>
                     </p>

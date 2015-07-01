@@ -87,10 +87,13 @@
     <hr />
 
     <center>
-        <form action="/Home/CheckOut" method="post">
-            <button type="submit" class="btn btn-success" value="Check Out">Check Out</button>
+        @if(list.Count > 0)
+        {
+            <form action="/Home/CheckOut" method="post">
+                <button type="submit" class="btn btn-success" value="Check Out">Check Out</button>
 
-        </form>
+            </form>
+        }
     </center>
     
 

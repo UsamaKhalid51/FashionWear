@@ -29,7 +29,10 @@
     list = ViewBag.LatestItemsList;
 }
 
-@for (int i = 0; i < 12; i++)
+
+
+
+@for (int i = 0; i < list.Count ; i++)
 {
 
     String src = list[i].item_Id + "_img_" + 1 + ".jpg";

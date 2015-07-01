@@ -87,12 +87,9 @@
                     @using (Html.BeginForm("Add", "Home", FormMethod.Post))
                     {
                         @Html.HiddenFor(m => m.item_Id)
-                        @Html.Label("Quantity", new { style = "color:black; padding:5px;margin-left:10%;font-weight:bold; font-family:Arial;font-size:20px;" })
-
-
-                        @Html.TextBox("quantity")
-
-                     
+                        @Html.Label("Quantity", new { style = "color:black; padding:5px;margin-left:10%;font-weight:bold; font-family:Arial;font-size:20px;"  })
+                        
+                        @Html.TextBox("quantity")                     
 
                         <input type="submit" class="btn btn-primary" width="50" value="Add" style="margin-left:10%;margin-top:2%;" />
                     }
